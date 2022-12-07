@@ -1,0 +1,41 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - config/initializers/client_side_validations.rb
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - lib/**/*
+    - config/environments/**/*
+    - app/admin/**/*
+
+Metrics/MethodLength:
+  Exclude:
+    - db/**/*
+
+Rails/OutputSafety:
+  Exclude:
+    - config/initializers/client_side_validations.rb
+    - app/admin/books.rb
+    - spec/features/admin/authors/show_spec.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/LetSetup:
+  Enabled: false

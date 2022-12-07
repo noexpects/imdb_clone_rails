@@ -21,7 +21,7 @@ gem 'jquery-rails', '~> 4.5'
 gem 'pagy', '~> 5.10', '>= 5.10.1'
 gem 'aws-sdk-s3', '~> 1.114'
 gem 'administrate', '~> 0.18.0'
-
+gem 'client_side_validations', '~> 20.0', '>= 20.0.2'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 

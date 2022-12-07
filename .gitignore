@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-/.idea
+.idea
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -31,3 +31,12 @@
 /config/master.key
 
 /config/credentials/development.key
+
+/coverage/
+/spec/reports/
+
+.rspec_status
+/config/credentials/test.key
+
+/config/credentials/production.key
+/public/uploads/*

@@ -1,0 +1,25 @@
+%header
+  = render partial: 'layouts/partials/alerts'
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container.px-4.px-lg-5
+      =link_to I18n.t(:brand), root_path, class: 'navbar-brand'
+      %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", type: "button"}
+        %span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        %ul.navbar-nav.me-auto.mb-2.mb-lg-0.ms-lg-4
+          %li.nav-item
+            =link_to I18n.t(:'navbar.home_btn_text'), root_path, class: request.path == root_path ? 'nav-link active' : 'nav-link'
+          %li.nav-item
+            =link_to I18n.t(:'navbar.about_btn_text'), about_path, class: request.path == about_path ? 'nav-link active' : 'nav-link'
+          - if current_user
+            %li.nav-item.dropdown
+              %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#", role: "button"} #{I18n.t(:'navbar.account_btn_text')}
+              %ul.dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+                %li
+                  = link_to I18n.t(:'navbar.settings_btn_text'), edit_user_registration_path, class: 'dropdown-item'
+        %form.d-flex
+          - if current_user
+            = link_to I18n.t(:'navbar.log_out_btn_text'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-dark'
+          - else
+            = link_to I18n.t(:'navbar.log_in_btn_text'), new_user_session_path, class: 'btn btn-outline-dark'
+

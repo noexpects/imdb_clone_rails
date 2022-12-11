@@ -1,0 +1,19 @@
+%h2 #{I18n.t(:'change_password_page.change_password_label')}
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  = f.hidden_field :reset_password_token
+  .field
+    = f.label :password, I18n.t(:'change_password_page.password_label')
+    %br/
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+      %br/
+    = f.password_field :password, autofocus: true, autocomplete: I18n.t(:password_autocomplete)
+  .field
+    = f.label :password_confirmation, I18n.t(:'change_password_page.confirm_password_label')
+    %br/
+    = f.password_field :password_confirmation, autocomplete: I18n.t(:password_autocomplete)
+  .actions
+    = f.submit I18n.t(:'change_password_page.submit_btn_text')
+= render "devise/shared/links"

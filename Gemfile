@@ -23,6 +23,8 @@ gem 'aws-sdk-s3', '~> 1.114'
 gem 'administrate', '~> 0.18.0'
 gem 'client_side_validations', '~> 20.0', '>= 20.0.2'
 
+gem "font-awesome-sass", "~> 6.2.1"
+
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]

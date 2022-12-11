@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require 'shrine/storage/s3'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -90,4 +91,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'https://rubybookstoreob.herokuapp.com' }
+  config.action_mailer.smtp_settings = {
+    user_name: Rails.application.credentials.dig(:sendgrid, :user_name),
+    password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key
+    domain: Rails.application.credentials.dig(:sendgrid, :domain),
+    address: Rails.application.credentials.dig(:sendgrid, :address),
+    port: Rails.application.credentials.dig(:sendgrid, :port),
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  config.action_mailer.default_options = {
+    from: Rails.application.credentials.dig(:mailer, :from_email)
+  }
 end

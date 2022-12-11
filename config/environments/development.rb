@@ -1,4 +1,6 @@
 require "active_support/core_ext/integer/time"
+require 'shrine'
+require 'shrine/storage/file_system'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -58,6 +60,15 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+
+  Shrine.storages = {
+    cache: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/cache'), # temporary
+    store: Shrine::Storage::FileSystem.new('public', prefix: 'uploads') # permanent
+  }
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

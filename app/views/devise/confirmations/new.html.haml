@@ -1,0 +1,10 @@
+%h2 #{I18n.t(:'resend_confirmation_instruction_page.resend_instructions_label')}
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: I18n.t(:email_autocomplete), value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+  .actions
+    = f.submit I18n.t(:'resend_confirmation_instruction_page.submit_btn_text')
+= render "devise/shared/links"

@@ -1,0 +1,4 @@
+%p
+  #{I18n.t(:'mailer.welcome', email: @email)}
+%p #{I18n.t(:'mailer.email_confirmation_message')}
+%p= link_to I18n.t(:'mailer.confirm_my_account_link_text'), confirmation_url(@resource, confirmation_token: @token)

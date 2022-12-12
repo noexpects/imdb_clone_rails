@@ -1,0 +1,4 @@
+#pager.min-w-full.my-8.flex.justify-center
+  - if pagy.next
+    =link_to(root_path(page: pagy.next), data: {turbo_frame: "movies_area"}, id:'view_more_link') do
+      %button.btn.btn-primary{value: 'view_more_btn'}= I18n.t(:'catalog.load_more_btn_text')

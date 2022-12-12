@@ -45,6 +45,12 @@ en:
     banner: Welcome to IMDB clone
     login: Please Log in or Sign up to be able to rate movies
 
+  movie_block:
+    view_detail_btn_text: View Detail
+
+  catalog:
+    load_more_btn_text: Load more
+
   footer_label: IMDB Clone. Test task by Oleksii Bilodid
 
 

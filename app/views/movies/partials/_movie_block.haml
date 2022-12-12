@@ -1,0 +1,9 @@
+.col.mb-5
+  .card
+    %img.card-img-top{alt: "...", src: movie_block.movie_photos.first.image(:medium)&.url}/
+    .card-body.p-4
+      .text-center
+        %h5.fw-bolder.title{title:movie_block.title, id: 'movie_block_title'} #{movie_block.title}
+    .card-footer.p-4.pt-0.border-top-0.bg-transparent
+      .text-center
+        = link_to I18n.t(:'movie_block.view_detail_btn_text'), movie_path(movie_block), class: 'btn btn-outline-dark mt-auto'

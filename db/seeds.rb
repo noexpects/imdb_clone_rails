@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+categories = [Category.create(name: 'Horror'),
+              Category.create(name: 'Comedy'),
+              Category.create(name: 'Music'),
+              Category.create(name: 'History'),
+              Category.create(name: 'Drama')]
+
+unless Movie.exists?
+  100.times do
+    FactoryBot.create(:movie, category: categories.sample)
+  end
+end

@@ -1522,7 +1522,7 @@ progress {
 
   .g-lg-5,
 .gx-lg-5 {
-    --bs-gutter-x: 3rem;
+    --bs-gutter-x: 4rem;
   }
 
   .g-lg-5,
@@ -6311,6 +6311,16 @@ textarea.form-control-lg {
   margin-top: -0.5rem;
   margin-right: -0.5rem;
   margin-bottom: -0.5rem;
+}
+
+.title{
+  font-size: large;
+  word-break: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 210px;
+  height: 1.5em;
+  white-space: nowrap;
 }
 
 .offcanvas-title {

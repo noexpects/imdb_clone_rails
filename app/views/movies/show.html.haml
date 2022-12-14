@@ -1,0 +1,36 @@
+%main
+  .my-3.ms-md-5
+    - if request.referer && URI(request.referer).path != root_path && URI(request.referer).path != link_to(movie_path(@movie))
+      =link_to request.referer, class: 'title-link fs-5' do
+        %i.fa.fa-long-arrow-left.mr-15
+        #{I18n.t(:'movie_page.back_to_results_link_text')}
+    - else
+      =link_to root_path, class: 'title-link' do
+        %i.fa.fa-long-arrow-left.mr-15
+        #{I18n.t(:'movie_page.to_catalog_link_text')}
+  %section
+    .container.px-4.px-lg-5.mt-1
+      .row
+        .col-sm-6
+          .ms-lg-6
+            %img.img-responsive{src: @movie.movie_photos.first.image(:medium)&.url}
+        .col-sm-6
+          %h1.mt-res-0{id: 'movie_title'}
+            = @movie.title
+          .row
+            .col-xs-12
+              %p.h2.mt-10{id: 'movie_rating'}
+                = I18n.t(:'movie_page.rating_label')
+                %span.h1
+                  = @movie.rating
+          .div
+            %p #{I18n.t(:'movie_page.description_label')}
+            %p.lead.small
+              - unless @movie.long_description?
+                =@movie.description.html_safe
+              - else
+                = turbo_frame_tag "description_area"
+                #description
+                  =@movie.short_description.html_safe
+                  =link_to(movie_path(@movie), data: {turbo_frame: "description_area"}) do
+                    Read More

@@ -2,7 +2,7 @@
 
 class HomeController < ApplicationController
   def index
-    @pagy, @movies = pagy(Movie.all, items: Constants::Movie::MOVIES_AMOUNT)
+    @pagy, @movies = pagy(MoviesQuery.call, items: Constants::Movie::MOVIES_AMOUNT)
   end
 end
 

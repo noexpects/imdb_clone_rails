@@ -39,20 +39,49 @@ en:
     account_btn_text: Account
     settings_btn_text: Settings
     log_out_btn_text: Log out
-    log_in_btn_text: Log in
+    log_in_btn_text: Log In
 
-  homepage:
-    banner: Welcome to IMDB clone
-    login: Please Log in or Sign up to be able to rate movies
+  movie_page:
+    back_to_results_link_text: Back to results
+    to_catalog_link_text: To catalog
+    description_label: 'Description:'
+    rating_label: 'Rating: '
+
+  about_page:
+    about_message: This site was created by Oleksii Bilodid as a test task for the Ruby on Rails developer position.
+    task_conditions_label: 'Task Conditions:'
+    task_conditions:
+      using_ruby_label: Using Ruby on Rails create an IMDB clone.
+      condition_1: 'Movie: Title, Text, Ratings, Category'
+      condition_2: Rating system from 1-10 available to registered users
+      condition_3: The home page that shows all movies and the ability to filter movies by categories (URL drove and SEO Friendly)
+      condition_4: Movie Details Page that shows the average rating
+      condition_5: From the Home page, it is possible to provide a quick star rating without reloading a page.
+      condition_6: Admin Interface to manage movies (CRUD)
+      condition_7: Pagination of Movies on Home Page
+      condition_8: Deploy an application to cloud servers like a Heroku or DigitalOcean
+      condition_9: Provide test coverage for the app using RSpec or TDD
+      condition_10: Use bootstrap or similar for the UI
+
+  banner:
+    home_page: Welcome to IMDB clone
+    login: Please Log In to be able to rate movies
 
   movie_block:
     view_detail_btn_text: View Detail
+    rate_btn_text: Rate
+    review_form:
+      score_label: Score
+      rate_btn_text: Rate
+    notices:
+      review_created: Your review was saved successfully, great job!
+      rated: You have rated this movie.
 
   catalog:
     load_more_btn_text: Load more
+    categories_label: 'Categories:'
 
   footer_label: IMDB Clone. Test task by Oleksii Bilodid
-
 
   resend_confirmation_instruction_page:
     resend_instructions_label: Resend confirmation instructions
@@ -97,10 +126,12 @@ en:
     update_btn_text: Update
     cancel_account_label: Cancel my account
     unhappy_label: Unhappy?
+    edit_label: 'Edit %{resource}'
 
   sign_up_page:
     sign_up_label: Sign up
     already_have_account_label: Already have an Account?
+    didnt_receive_confirmation_label: Didn't receive confirmation instructions?
 
   login_page:
     log_in_label: Log In

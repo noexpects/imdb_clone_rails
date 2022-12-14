@@ -13,7 +13,7 @@ categories = [Category.create(name: 'Horror'),
               Category.create(name: 'Drama')]
 
 unless Movie.exists?
-  100.times do
+  50.times do
     FactoryBot.create(:movie, category: categories.sample)
   end
 end

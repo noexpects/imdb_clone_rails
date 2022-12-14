@@ -154,7 +154,7 @@
 
   Plugin.Constructor = Rating;
 
-  $(function() {
+  $(document).on('turbo:load turbo:frame-render', function() {
     $('input.rating[type=number]').each(function() {
       $(this).rating();
     });

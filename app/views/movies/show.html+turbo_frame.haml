@@ -1,0 +1,2 @@
+= turbo_frame_tag "description_area" do
+  = turbo_stream_action_tag("replace", target: "description", template: %(#{@movie.description}))

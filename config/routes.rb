@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :movies, only: %i[index show]
   resource :about, only: %i[show]
+  resource :review, only: %i[create]
+  resources :categories, only: %i[show]
 
   root 'home#index'
 end

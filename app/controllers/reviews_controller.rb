@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   end
 
   def redirect_success
-    respond_to { |format| format.turbo_stream }
+    respond_to(&:turbo_stream)
   end
 
   def current_movie

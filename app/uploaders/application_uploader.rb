@@ -10,4 +10,3 @@ class ApplicationUploader < Shrine
   plugin :pretty_location
   plugin :derivatives, create_on_promote: true
 end
-

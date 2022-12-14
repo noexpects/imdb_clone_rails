@@ -8,9 +8,9 @@ class MovieDecorator < ApplicationDecorator
   end
 
   def short_description
-    description[...Constants::Movie::SHORT_DESCRIPTION_LENGTH ]
+    description[...Constants::Movie::SHORT_DESCRIPTION_LENGTH]
   end
-  
+
   def reviewed_by_user?(user:)
     reviews.exists?(user: user)
   end

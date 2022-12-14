@@ -7,4 +7,3 @@ class MoviesController < ApplicationController
     redirect_to root_path unless @movie
   end
 end
-

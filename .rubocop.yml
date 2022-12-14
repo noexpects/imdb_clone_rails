@@ -8,8 +8,6 @@ AllCops:
 
 Layout/LineLength:
   Max: 120
-  Exclude:
-    - config/initializers/client_side_validations.rb
 
 Style/Documentation:
   Enabled: false
@@ -19,17 +17,10 @@ Metrics/BlockLength:
     - spec/**/*
     - lib/**/*
     - config/environments/**/*
-    - app/admin/**/*
 
 Metrics/MethodLength:
   Exclude:
     - db/**/*
-
-Rails/OutputSafety:
-  Exclude:
-    - config/initializers/client_side_validations.rb
-    - app/admin/books.rb
-    - spec/features/admin/authors/show_spec.rb
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
@@ -39,3 +30,7 @@ RSpec/NestedGroups:
 
 RSpec/LetSetup:
   Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Exclude:
+    - app/models/review.rb

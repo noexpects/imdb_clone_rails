@@ -5,4 +5,3 @@ class HomeController < ApplicationController
     @pagy, @movies = pagy(MoviesQuery.call, items: Constants::Movie::MOVIES_AMOUNT)
   end
 end
-

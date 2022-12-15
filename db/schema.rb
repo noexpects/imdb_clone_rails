@@ -73,6 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_234659) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "provider", default: "", null: false
+    t.string "uid", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false

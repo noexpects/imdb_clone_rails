@@ -19,3 +19,8 @@ unless Movie.exists?
     FactoryBot.create(:movie, category: categories.sample)
   end
 end
+
+unless User.exists?
+  FactoryBot.create(:user, email: 'admin@admin.com', password: '123456', admin: true)
+  FactoryBot.create(:user, email: 'testuser@gmail.com', password: '123456')
+end

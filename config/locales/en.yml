@@ -35,6 +35,7 @@ en:
   navbar:
     home_btn_text: Home
     about_btn_text: About
+    administrate_btn_text: Administrate
     sign_up_btn_text: Sign up
     account_btn_text: Account
     settings_btn_text: Settings

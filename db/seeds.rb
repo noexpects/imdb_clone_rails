@@ -14,13 +14,13 @@ categories = [Category.create(name: 'Horror'),
               Category.create(name: 'History'),
               Category.create(name: 'Drama')]
 
+unless User.exists?
+  FactoryBot.create(:user, email: 'admin@admin.com', password: '123456', admin: true)
+  FactoryBot.create(:user, email: 'testuser@gmail.com', password: '123456')
+end
+
 unless Movie.exists?
   50.times do
     FactoryBot.create(:movie, category: categories.sample)
   end
-end
-
-unless User.exists?
-  FactoryBot.create(:user, email: 'admin@admin.com', password: '123456', admin: true)
-  FactoryBot.create(:user, email: 'testuser@gmail.com', password: '123456')
 end

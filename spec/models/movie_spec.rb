@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Movie do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to belong_to(:category).class_name('Category') }
+  it { is_expected.to have_many(:reviews).class_name('Review') }
+  it { is_expected.to have_many(:movie_photos).class_name('MoviePhoto') }
 end

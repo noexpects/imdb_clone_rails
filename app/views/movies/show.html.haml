@@ -1,19 +1,21 @@
 %main
-  .my-3.ms-md-5
-    - if request.referer && URI(request.referer).path != root_path && URI(request.referer).path != link_to(movie_path(@movie))
-      =link_to request.referer, class: 'title-link fs-5' do
-        %i.fa.fa-long-arrow-left.mr-15
-        #{I18n.t(:'movie_page.back_to_results_link_text')}
-    - else
-      =link_to root_path, class: 'title-link' do
-        %i.fa.fa-long-arrow-left.mr-15
-        #{I18n.t(:'movie_page.to_catalog_link_text')}
   %section
     .container.px-4.px-lg-5.mt-1
       .row
+        .my-3.ms-lg-7
+          - if request.referer && URI(request.referer).path != root_path && URI(request.referer).path != link_to(movie_path(@movie))
+            =link_to request.referer, class: 'title-link fs-5' do
+              %i.fa.fa-long-arrow-left.mr-15
+              #{I18n.t(:'movie_page.back_to_results_link_text')}
+          - else
+            =link_to root_path, class: 'title-link fs-5' do
+              %i.fa.fa-long-arrow-left.mr-15
+              #{I18n.t(:'movie_page.to_catalog_link_text')}
+      .row
         .col-sm-6
           .ms-lg-6
-            %img.img-responsive{src: @movie.movie_photos.first.image(:medium)&.url}
+            .px-lg-4
+              %img.img-responsive{src: @movie.image.large.url}
         .col-sm-6
           %h1.mt-res-0{id: 'movie_title'}
             = @movie.title

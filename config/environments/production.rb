@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/integer/time'
-require 'shrine/storage/s3'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -113,11 +112,18 @@ Rails.application.configure do
     region: Rails.application.credentials.dig(:aws, :region),
     access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
     secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
-    public: true
+    aws_acl: 'public'
   }
 
-  Shrine.storages = {
-    cache: Shrine::Storage::S3.new(prefix: 'cache', **s3_options),
-    store: Shrine::Storage::S3.new(**s3_options)
-  }
+  CarrierWave.configure do |config|
+    config.storage    = :aws
+    config.aws_bucket = s3_options[:bucket]
+    config.aws_acl    = s3_options[:aws_acl]
+
+    config.aws_credentials = {
+      access_key_id: s3_options[:access_key_id],
+      secret_access_key: s3_options[:secret_access_key],
+      region: s3_options[:region]
+    }
+  end
 end

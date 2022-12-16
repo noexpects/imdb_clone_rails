@@ -33,17 +33,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_234659) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "movie_photos", force: :cascade do |t|
-    t.text "image_data", null: false
-    t.bigint "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_movie_photos_on_movie_id"
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
@@ -82,7 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_234659) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "movie_photos", "movies"
   add_foreign_key "movies", "categories"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"

@@ -13,7 +13,12 @@ class MovieDashboard < Administrate::BaseDashboard
     id: Field::Number,
     category: Field::BelongsTo,
     description: Field::Text,
-    movie_photos: Field::HasMany,
+    image: Field::Carrierwave.with_options(
+      image: :tiny,
+      multiple: false,
+      remove: true,
+      remote_url: false
+    ),
     rating: Field::String.with_options(searchable: false),
     reviews: Field::HasMany,
     slug: Field::String,
@@ -31,7 +36,7 @@ class MovieDashboard < Administrate::BaseDashboard
     id
     category
     description
-    movie_photos
+    image
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,7 +45,7 @@ class MovieDashboard < Administrate::BaseDashboard
     id
     category
     description
-    movie_photos
+    image
     rating
     reviews
     slug
@@ -55,7 +60,7 @@ class MovieDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     category
     description
-    movie_photos
+    image
     title
   ].freeze
 

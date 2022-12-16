@@ -42,9 +42,6 @@ module Admin
     #     transform_values { |value| value == "" ? nil : value }
     # end
 
-    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
-    # for more information
-
     def valid_action?(name, resource = resource_class)
       %w[edit destroy].exclude?(name.to_s) && super
     end

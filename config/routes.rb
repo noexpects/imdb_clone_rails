@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :users
     resources :movies
     resources :categories
-    resources :movie_photos
     resources :reviews
 
     root to: 'users#index'

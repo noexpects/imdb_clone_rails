@@ -5,6 +5,7 @@ class CreateMovies < ActiveRecord::Migration[7.0]
     create_table :movies do |t|
       t.string :title, null: false
       t.text :description
+      t.string :image
 
       t.timestamps
     end

@@ -6,8 +6,8 @@ FactoryBot.define do
     description { FFaker::Book.description(10) }
     category
 
-    after :build do |movie|
-      FactoryBot.create(:movie_photo, movie: movie)
+    image do
+      Rack::Test::UploadedFile.new(Dir[Rails.root.join('spec/fixtures/files/images/valid_movie_images/*.*')].sample)
     end
   end
 end

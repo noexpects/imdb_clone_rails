@@ -1,7 +1,7 @@
 - movies_set.each do |movie|
   .col.mb-5
     .card
-      %img.card-img-top{alt: "...", src: movie.movie_photos.first.image(:medium)&.url}/
+      %img.card-img-top{alt: "...", src: movie.image.medium.url}/
       .card-body.p-4.py-1.pt-3
         .text-center
           %h5.fw-bolder.title{title:movie.title, id: 'movie_title'}

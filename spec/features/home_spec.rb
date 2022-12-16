@@ -118,7 +118,7 @@ RSpec.describe 'Homepage' do
         visit root_path
       end
 
-      it { expect(page.find('#movie_title').text).to eq movies.last.title }
+      it { expect(page.find_by_id('movie_title').text).to eq movies.last.title }
     end
 
     context 'when "View more" button clicked' do
@@ -131,7 +131,7 @@ RSpec.describe 'Homepage' do
         click_on('view_more_link')
       end
 
-      it { expect(page.find('#movie_title').text).to eq movies.first.title }
+      it { expect(page.find_by_id('movie_title').text).to eq movies.first.title }
     end
   end
 end

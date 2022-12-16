@@ -12,7 +12,7 @@
 - Provide test coverage for the app using RSpec or TDD
 - Use bootstrap or similar for the UI
 
-### Test coverage: 99.2%
+### Test coverage: 99.23%
 
 ### **[Project deployed on Heroku](https://imdbclone.herokuapp.com/)**
 #### Admin account:

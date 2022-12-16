@@ -75,4 +75,63 @@ RSpec.describe 'Homepage' do
       it { expect(Review.count).to eq 1 }
     end
   end
+
+  describe 'View More button presence' do
+    describe 'View more button not present when there are no movies' do
+      before do
+        visit root_path
+      end
+
+      it { expect(page.has_button?('view_more_btn')).to be(false) }
+    end
+
+    describe 'View more button present when there is some movies' do
+      before do
+        stub_const('Constants::Movie::MOVIES_AMOUNT', 1)
+        create_list(:movie, 2)
+        visit root_path
+      end
+
+      it { expect(page.has_button?('view_more_btn')).to be(true) }
+    end
+  end
+
+  describe 'There is correct movies amount on page' do
+    let(:movies_amount) { 1 }
+
+    before do
+      stub_const('Constants::Movie::MOVIES_AMOUNT', movies_amount)
+      create_list(:movie, 2)
+      visit root_path
+    end
+
+    it { expect(page.find_all('.card').count).to eq movies_amount }
+  end
+
+  describe 'Pagination works correctly' do
+    context 'when "View more" button not clicked yet' do
+      let(:movies_amount) { 1 }
+      let!(:movies) { create_list(:movie, 2) }
+
+      before do
+        stub_const('Constants::Movie::MOVIES_AMOUNT', movies_amount)
+        visit root_path
+      end
+
+      it { expect(page.find('#movie_title').text).to eq movies.last.title }
+    end
+
+    context 'when "View more" button clicked' do
+      let(:movies_amount) { 1 }
+      let!(:movies) { create_list(:movie, 2) }
+
+      before do
+        stub_const('Constants::Movie::MOVIES_AMOUNT', movies_amount)
+        visit root_path
+        click_on('view_more_link')
+      end
+
+      it { expect(page.find('#movie_title').text).to eq movies.first.title }
+    end
+  end
 end

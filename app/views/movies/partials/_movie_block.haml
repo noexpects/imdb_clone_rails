@@ -1,0 +1,18 @@
+- movies_set.each do |movie|
+  .col.mb-5
+    .card
+      %img.card-img-top{alt: "...", src: movie.image.medium.url}/
+      .card-body.p-4.py-1.pt-3
+        .text-center
+          %h5.fw-bolder.title{title:movie.title, id: 'movie_title'}
+            = link_to movie.title, movie_path(movie), data: {turbo: false}, class: 'title-link'
+      .card-footer.p-4.pt-0.border-top-0.bg-transparent
+        .text-center
+          - if current_user
+            = turbo_frame_tag 'movie_block'
+            .div{id:dom_id(movie)}
+              - if movie.decorate.reviewed_by_user?(user: current_user)
+                = render partial:'movies/partials/rated_block'
+              - else
+                = render partial:'reviews/partials/review_form', locals: {movie: movie}, cached: true
+          = link_to I18n.t(:'movie_block.view_detail_btn_text'), movie_path(movie), class: 'btn btn-outline-dark mt-auto w-75', id: 'view_detail_btn'

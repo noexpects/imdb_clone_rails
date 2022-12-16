@@ -1,0 +1,44 @@
+.mt-5
+.row.mx-auto
+  .col-sm-5.mx-lg-5
+    %h2
+      = I18n.t(:'user_profile_edit_page.edit_label', resource: resource_name.to_s.humanize)
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data:{ turbo:false }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .form-outline.mb-4
+      .field
+        = f.label :email, class: 'form-label'
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        #waiting_confirmation_message
+          #{I18n.t(:'user_profile_edit_page.waiting_email_confirmation_message', email: resource.unconfirmed_email)}
+      .form-outline.mb-4
+      .field
+        = f.label :password, class: 'form-label'
+        %i #{I18n.t(:'user_profile_edit_page.leave_blank_password_message')}
+        %br/
+        = f.password_field :password, autocomplete: I18n.t(:password_autocomplete), class: 'form-control'
+        - if @minimum_password_length
+          %br/
+          %em
+            #{I18n.t(:'user_profile_edit_page.characters_minimum_message', amount: @minimum_password_length.to_s)}
+      .form-outline.mb-4
+      .field
+        = f.label :password_confirmation, class: 'form-label'
+        %br/
+        = f.password_field :password_confirmation, autocomplete: I18n.t(:password_autocomplete), class: 'form-control'
+      .form-outline.mb-4
+      .field
+        = f.label :current_password, class: 'form-label'
+        %i #{I18n.t(:'user_profile_edit_page.need_current_password_message')}
+        %br/
+        = f.password_field :current_password, autocomplete: I18n.t(:current_password_autocomplete), class: 'form-control', id:'current_password'
+      .actions
+        .text-center
+          = f.submit I18n.t(:'user_profile_edit_page.update_btn_text'), class: 'btn btn-primary btn-block my-4', id: 'submit_btn'
+
+  .col-sm-5.mx-lg-3
+    %h3 #{I18n.t(:'user_profile_edit_page.cancel_account_label')}
+    %p
+      #{I18n.t(:'user_profile_edit_page.unhappy_label')} #{button_to I18n.t(:'user_profile_edit_page.cancel_account_label'), registration_path(resource_name), data:{ turbo: false }, class: 'btn btn-danger', id: 'deleteAccBtn', method: :delete}

@@ -1,0 +1,7 @@
+.mb-2
+  = form_for Review.new, as: :review, validate: true, url: review_path, data:{turbo: true}, method: :post do |form|
+    =form.hidden_field :movie_id, value: movie.id
+    = form.label I18n.t(:'movie_block.review_form.score_label'), class: 'control-label input-label in-grey-600'
+    = form.text_field :score, class: 'rating mb-1', type: "number", 'data-max': 10, 'data-min': 1, value: 1, 'data-icon-lib': 'fa', 'data-active-icon':"fas fa-star fa-lg", 'data-inactive-icon':"far fa-star-o fa-lg"
+
+    = form.submit I18n.t(:'movie_block.review_form.rate_btn_text'), class:'btn btn-outline-dark mt-auto w-75', id: "submit_btn"

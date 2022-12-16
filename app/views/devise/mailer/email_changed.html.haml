@@ -1,0 +1,8 @@
+%p
+  #{I18n.t(:'mailer.hello', email: @email)}
+- if @resource.try(:unconfirmed_email?)
+  %p
+    #{I18n.t(:'mailer.unconfirmed_email_change_message', email: @resource.unconfirmed_email)}
+- else
+  %p
+    #{I18n.t(:'mailer.confirmed_email_change_message', email: @resource.email)}

@@ -1,0 +1,29 @@
+.my-auto.mx-auto
+  .text-center
+    %h2 #{I18n.t(:'login_page.log_in_label')}
+    = link_to "", user_google_oauth2_omniauth_authorize_path, data: { turbolinks: false }, class: 'title-link fab fa-google fa-2x my-2'
+    %p.general-login-text.mt-3 or
+  .general-form
+    = form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f|
+      .field
+        = f.label :email, class: 'form-label'
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete:  I18n.t(:email_autocomplete), class: 'form-control'
+      .form-outline.mb-4
+      .field
+        = f.label :password, class: 'form-label'
+        %br/
+        = f.password_field :password, autocomplete: I18n.t(:current_password_autocomplete), class: 'form-control'
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me, class: 'form-label'
+        .form-outline.mb-4
+      .actions
+        .text-center
+          = f.submit I18n.t(:'login_page.log_in_label'), class: 'btn btn-primary btn-block mb-4', id: 'submit_btn'
+    %p.text-center
+      #{I18n.t(:'login_page.no_account_label')}
+      = link_to I18n.t(:'login_page.sign_up_link'), new_registration_path(resource_name)
+    %p.text-center
+      = link_to I18n.t(:'forgot_password_page.forgot_pass_label'), new_password_path(resource_name)

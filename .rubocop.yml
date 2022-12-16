@@ -1,0 +1,36 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - lib/**/*
+    - config/environments/**/*
+
+Metrics/MethodLength:
+  Exclude:
+    - db/**/*
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/LetSetup:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Exclude:
+    - app/models/review.rb

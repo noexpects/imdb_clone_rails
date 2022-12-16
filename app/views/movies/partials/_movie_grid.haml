@@ -1,0 +1,8 @@
+%section.py-5
+  .container.px-4.px-lg-5.mt-1
+    = render partial: 'categories/partials/categories_tab'
+    = turbo_frame_tag "movies_area"
+    #movies_rows
+      = render partial: 'movies/partials/movie_row', locals: {movies_set: @movies}
+    .text-center
+      = render partial: 'movies/partials/next_link', locals: { pagy: @pagy }

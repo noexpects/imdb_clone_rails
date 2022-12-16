@@ -111,14 +111,12 @@ Rails.application.configure do
     bucket: Rails.application.credentials.dig(:aws, :bucket),
     region: Rails.application.credentials.dig(:aws, :region),
     access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
-    secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
-    aws_acl: 'public'
+    secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key)
   }
 
   CarrierWave.configure do |config|
     config.storage    = :aws
     config.aws_bucket = s3_options[:bucket]
-    config.aws_acl    = s3_options[:aws_acl]
 
     config.aws_credentials = {
       access_key_id: s3_options[:access_key_id],

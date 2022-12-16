@@ -1,4 +1,4 @@
 - if notice
-    %p.notice{id: 'notice_message'}= notice
+    %p.notice.alert.alert-success{id: 'notice_message'}= notice
 - elsif alert
-    %p.alert{id: 'alert_message'}= alert
+    %p.alert.alert-danger{id: 'alert_message'}= alert

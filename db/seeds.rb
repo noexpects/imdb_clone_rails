@@ -14,7 +14,7 @@ categories = [Category.create(name: 'Horror'),
               Category.create(name: 'History'),
               Category.create(name: 'Drama')]
 
-FactoryBot.create(:user, email: 'admin@admin.com', password: '123456', admin: true)
+FactoryBot.create(:user, email: 'admin@admin.com', password: 'password', admin: true)
 
 30.times do
   FactoryBot.create(:movie, category: categories.sample)

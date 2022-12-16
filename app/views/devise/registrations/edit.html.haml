@@ -11,7 +11,7 @@
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %div
+        #waiting_confirmation_message
           #{I18n.t(:'user_profile_edit_page.waiting_email_confirmation_message', email: resource.unconfirmed_email)}
       .form-outline.mb-4
       .field
@@ -33,12 +33,12 @@
         = f.label :current_password, class: 'form-label'
         %i #{I18n.t(:'user_profile_edit_page.need_current_password_message')}
         %br/
-        = f.password_field :current_password, autocomplete: I18n.t(:current_password_autocomplete), class: 'form-control'
+        = f.password_field :current_password, autocomplete: I18n.t(:current_password_autocomplete), class: 'form-control', id:'current_password'
       .actions
         .text-center
-          = f.submit I18n.t(:'user_profile_edit_page.update_btn_text'), class: 'btn btn-primary btn-block my-4'
+          = f.submit I18n.t(:'user_profile_edit_page.update_btn_text'), class: 'btn btn-primary btn-block my-4', id: 'submit_btn'
 
   .col-sm-5.mx-lg-3
     %h3 #{I18n.t(:'user_profile_edit_page.cancel_account_label')}
     %p
-      #{I18n.t(:'user_profile_edit_page.unhappy_label')} #{button_to I18n.t(:'user_profile_edit_page.cancel_account_label'), registration_path(resource_name), data:{ turbo: false }, class: 'btn btn-danger',method: :delete}
+      #{I18n.t(:'user_profile_edit_page.unhappy_label')} #{button_to I18n.t(:'user_profile_edit_page.cancel_account_label'), registration_path(resource_name), data:{ turbo: false }, class: 'btn btn-danger', id: 'deleteAccBtn', method: :delete}

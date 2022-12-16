@@ -16,6 +16,6 @@ class Movie < ApplicationRecord
   def update_average_rating
     @ratings = reviews.collect(&:score)
 
-    @ratings.empty? ? update(rating: 0) : update(rating: @ratings.sum / @ratings.size)
+    @ratings.empty? ? update(rating: 0) : update(rating: @ratings.sum.to_f / @ratings.size)
   end
 end

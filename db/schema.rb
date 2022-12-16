@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_234659) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
-    t.decimal "rating", precision: 4, scale: 2, default: "0.0"
+    t.decimal "rating", precision: 3, scale: 1, default: "0.0"
     t.string "slug"
     t.index ["category_id"], name: "index_movies_on_category_id"
     t.index ["slug"], name: "index_movies_on_slug", unique: true

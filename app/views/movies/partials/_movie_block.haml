@@ -15,4 +15,4 @@
                 = render partial:'movies/partials/rated_block'
               - else
                 = render partial:'reviews/partials/review_form', locals: {movie: movie}, cached: true
-          = link_to I18n.t(:'movie_block.view_detail_btn_text'), movie_path(movie), class: 'btn btn-outline-dark mt-auto w-75'
+          = link_to I18n.t(:'movie_block.view_detail_btn_text'), movie_path(movie), class: 'btn btn-outline-dark mt-auto w-75', id: 'view_detail_btn'

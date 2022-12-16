@@ -29,7 +29,8 @@
             %p #{I18n.t(:'movie_page.description_label')}
             %p.lead.small
               - unless @movie.long_description?
-                =@movie.description.html_safe
+                #description
+                  =@movie.description.html_safe
               - else
                 = turbo_frame_tag "description_area"
                 #description

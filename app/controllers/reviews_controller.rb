@@ -19,7 +19,12 @@ class ReviewsController < ApplicationController
   end
 
   def redirect_success
-    respond_to(&:turbo_stream)
+    respond_to do |format|
+      format.html do
+        redirect_to root_path, notice: I18n.t(:'movie_block.notices.review_created')
+      end
+      format.turbo_stream
+    end
   end
 
   def current_movie

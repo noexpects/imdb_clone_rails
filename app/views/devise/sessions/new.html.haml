@@ -21,7 +21,7 @@
         .form-outline.mb-4
       .actions
         .text-center
-          = f.submit I18n.t(:'login_page.log_in_label'), class: 'btn btn-primary btn-block mb-4'
+          = f.submit I18n.t(:'login_page.log_in_label'), class: 'btn btn-primary btn-block mb-4', id: 'submit_btn'
     %p.text-center
       #{I18n.t(:'login_page.no_account_label')}
       = link_to I18n.t(:'login_page.sign_up_link'), new_registration_path(resource_name)

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 

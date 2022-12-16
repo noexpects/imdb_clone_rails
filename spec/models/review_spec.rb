@@ -3,5 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Review do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to belong_to(:user).class_name('User') }
+  it { is_expected.to belong_to(:movie).class_name('Movie') }
 end

@@ -8,7 +8,7 @@
       #navbarSupportedContent.collapse.navbar-collapse
         %ul.navbar-nav.me-auto.mb-2.mb-lg-0.ms-lg-4
           %li.nav-item
-            =link_to I18n.t(:'navbar.home_btn_text'), root_path, data: {turbo:false}, class: request.path == root_path ? 'nav-link active' : 'nav-link'
+            =link_to I18n.t(:'navbar.home_btn_text'), root_path, data: {turbo:false}, id: 'home_link_header', class: request.path == root_path ? 'nav-link active' : 'nav-link'
           %li.nav-item
             =link_to I18n.t(:'navbar.about_btn_text'), about_path, data: {turbo:false}, class: request.path == about_path ? 'nav-link active' : 'nav-link'
           - if current_user
@@ -22,7 +22,7 @@
                 =link_to I18n.t(:'navbar.administrate_btn_text'), admin_root_path, data: {turbo:false}, class: 'nav-link'
         %form.d-flex
           - if current_user
-            = link_to I18n.t(:'navbar.log_out_btn_text'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-dark'
+            = link_to I18n.t(:'navbar.log_out_btn_text'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-dark', id: 'logout_btn'
           - else
-            = link_to I18n.t(:'navbar.log_in_btn_text'), new_user_session_path, data: {turbo:false}, class: 'btn btn-outline-dark'
+            = link_to I18n.t(:'navbar.log_in_btn_text'), new_user_session_path, data: {turbo:false}, class: 'btn btn-outline-dark', id: 'login_btn'
 

@@ -34,9 +34,10 @@ class MovieDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    title
     category
-    description
-    image
+    rating
+    reviews
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

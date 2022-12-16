@@ -7,7 +7,7 @@
       .field
         = f.label :email, class: 'form-label'
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: I18n.t(:email_autocomplete), class: 'form-control'
+        = f.email_field :email, autofocus: true, autocomplete: I18n.t(:email_autocomplete), class: 'form-control', id:'user_email'
       .form-outline.mb-4
       .field
         = f.label :password, class: 'form-label'
@@ -15,17 +15,17 @@
           %em
             #{I18n.t(:'user_profile_edit_page.characters_minimum_message', amount: @minimum_password_length.to_s)}
         %br/
-        = f.password_field :password, autocomplete: I18n.t(:password_autocomplete), class: 'form-control'
+        = f.password_field :password, autocomplete: I18n.t(:password_autocomplete), class: 'form-control', id:'user_password'
       .form-outline.mb-4
       .field
         = f.label :password_confirmation, class: 'form-label'
         %br/
-        = f.password_field :password_confirmation, autocomplete: I18n.t(:password_autocomplete), class: 'form-control'
+        = f.password_field :password_confirmation, autocomplete: I18n.t(:password_autocomplete), class: 'form-control', id:'user_password_confirmation'
       .form-outline.mb-4
       .actions
         .text-center
-          = f.submit I18n.t(:'sign_up_page.sign_up_label'), class: 'btn btn-primary btn-block mb-4'
+          = f.submit I18n.t(:'sign_up_page.sign_up_label'), class: 'btn btn-primary btn-block mb-4', id: 'submit_btn'
           %p.general-sign-text.text-center
             #{I18n.t(:'sign_up_page.already_have_account_label')}
-            = link_to I18n.t(:'navbar.log_in_btn_text'), new_user_session_path, class:'in-gold-500'
+            = link_to I18n.t(:'navbar.log_in_btn_text'), new_user_session_path
       = link_to I18n.t(:'sign_up_page.didnt_receive_confirmation_label'), new_confirmation_path(resource_name)
